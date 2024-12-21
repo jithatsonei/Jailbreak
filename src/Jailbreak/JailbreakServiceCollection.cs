@@ -2,6 +2,7 @@
 using Gangs.Boostrap;
 using Jailbreak.Debug;
 using Jailbreak.English.Generic;
+using Jailbreak.English.Hide;
 using Jailbreak.English.LastGuard;
 using Jailbreak.English.LastRequest;
 using Jailbreak.English.Logs;
@@ -16,10 +17,12 @@ using Jailbreak.Formatting.Views.RTD;
 using Jailbreak.Formatting.Views.SpecialDay;
 using Jailbreak.Formatting.Views.Warden;
 using Jailbreak.Generic;
+using Jailbreak.Hide;
 using Jailbreak.LastGuard;
 using Jailbreak.LastRequest;
 using Jailbreak.Logs;
 using Jailbreak.Mute;
+using Jailbreak.Public.Mod.Hide;
 using Jailbreak.Rebel;
 using Jailbreak.RTD;
 using Jailbreak.SpecialDay;
@@ -59,6 +62,8 @@ public class JailbreakServiceCollection : IPluginServiceCollection<Jailbreak> {
      .AddSingleton<IWardenCmdChickenLocale, WardenCmdChickenLocale>();
     serviceCollection
      .AddSingleton<IWardenCmdSoccerLocale, WardenCmdSoccerLocale>();
+    serviceCollection.AddSingleton<IHideLocale, HideLocale>();
+    serviceCollection.AddSingleton<IHideService, IHideService>();
 
     //	Do we want to make this scoped?
     //	Not sure how this will behave with multiple rounds and whatnot.
@@ -66,6 +71,7 @@ public class JailbreakServiceCollection : IPluginServiceCollection<Jailbreak> {
     serviceCollection.AddJailbreakLogs();
     serviceCollection.AddJailbreakRebel();
     serviceCollection.AddJailbreakMute();
+    serviceCollection.AddJailbreakHide();
     serviceCollection.AddJailbreakWarden();
     serviceCollection.AddJailbreakDebug();
     serviceCollection.AddJailbreakLastRequest();
